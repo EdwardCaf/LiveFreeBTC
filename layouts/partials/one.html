@@ -1,0 +1,17 @@
+{{ $md := .Site.Params.body_is_markdown | default false }}
+
+{{ with .Site.Params.one }}
+{{ if .enable }}
+	<section id="one" class="wrapper style1 special">
+		<div class="inner">
+			<header class="major">
+        <h2>New to Bitcoin?</h2>
+
+				<p>LiveFreeBTC provides resources for setting up your first Bitcoin wallet, Node, and using bitcoin as a payment processor.
+				</p>
+			</header>
+			
+		</div>
+	</section>
+{{ end }}
+{{ end }}
