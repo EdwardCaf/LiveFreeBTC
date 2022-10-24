@@ -1,40 +1,36 @@
-<!DOCTYPE HTML>
-<!--
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html lang="{{ .Site.Language.Lang | default "en-us" }}">
-	<head>
-	  <title>{{ .Title }}</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="referrer" content="origin">
-
-    {{ with .Site.Params.description }}<meta name="description" content="{{ . | plainify }}">{{ end }}
-    {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-    {{ range .AlternativeOutputFormats -}}
-      {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-    {{ end -}}
-    {{ hugo.Generator }}
-
-    {{ partial "stylesheets.html" . }}
-    {{ range .Translations }}
-    <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
-    {{ end }}
-    {{ template "_internal/twitter_cards.html" . }}
-    {{ template "_internal/opengraph.html" . }}
-    {{ partial "hooks/head-end.html" . }}
-	</head>
-	<body class="landing is-preload">
-
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
-
-				<!-- Header -->
-          <header id="header"{{ if .Page.IsHome }} class="alt"{{ end }}>
-            <h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
-						<nav id="nav">
-							
-						</nav>
-					</header>
+<!DOCTYPE html>
+<html lang="{{ .Site.Language }}">
+<head>
+	<title>{{ if not .IsHome }}{{ singularize .Title | title }} | {{ end }}{{ .Site.Title }}</title>
+	<link rel="canonical" href="{{ .Site.BaseURL }}">
+	<link rel='alternate' type='application/rss+xml' title="{{ .Site.Title }} RSS" href='/index.xml'>
+	<link rel='stylesheet' type='text/css' href='/style.css'>
+	{{ with .Site.Params.favicon }}<link rel="icon" href="{{ . }}">
+	{{ end -}}
+	<meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
+	{{ if isset .Params "tags" }}<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}">
+	{{ end -}}
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="index, follow">
+	<meta charset="utf-8">
+	<style>
+  body {
+    visibility: hidden;
+    opacity: 0;
+  }
+	</style>
+</head>
+<body>
+	<noscript>
+  <style>
+    body {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</noscript>
+	<header class="home-link"><h1 id="tag_{{ .Title }}"><a href="{{ .Site.BaseURL }}">{{ singularize .Title }}</a><br><br></h1></header>
+{{- if .Site.Menus.main }}
+{{ partial "nav.html" . }}
+{{ end }}
+<main>
