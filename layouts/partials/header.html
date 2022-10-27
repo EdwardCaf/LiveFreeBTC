@@ -4,7 +4,11 @@
 	<title>{{ if not .IsHome }}{{ singularize .Title | title }} | {{ end }}{{ .Site.Title }}</title>
 	<link rel="canonical" href="{{ .Site.BaseURL }}">
 	<link rel='alternate' type='application/rss+xml' title="{{ .Site.Title }} RSS" href='/index.xml'>
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
 	<link rel='stylesheet' type='text/css' href='/style.css'>
+	<link rel='stylesheet' type='text/css' href='/bootstrap.min.css'>
 	{{ with .Site.Params.favicon }}<link rel="icon" href="{{ . }}">
 	{{ end -}}
 	<meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
@@ -29,5 +33,5 @@
     }
   </style>
 </noscript>
-	<img src="img/logo_black.png" alt="">
-<main>
+	
+<main class="container-fluid" style="padding:0px;">
