@@ -8,6 +8,7 @@ body {
 	font-weight: 200;
 	color: #ccc ;
 	width: 100%;
+	overflow-x: hidden;
 }
 /* Alternate bg-color
 background: rgb(29,30,32);
@@ -18,6 +19,10 @@ img {
 	text-align: center;
 	margin: 0 auto;
 	width: 40%;
+}
+
+span{
+	color: blue;
 }
 
 .banner{
