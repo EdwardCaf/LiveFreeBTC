@@ -3,13 +3,6 @@
 	font-family: 'Open Sans', sans-serif;
 	font-weight: lighter;
 }
-body {
-	font-size: 1em;
-	font-weight: 200;
-	color: #ccc ;
-	width: 100%;
-	overflow-x: hidden;
-}
 /* Alternate bg-color
 background: rgb(29,30,32);
 */
@@ -22,13 +15,34 @@ img {
 }
 
 span{
-	color: blue;
+	color: orange;
 }
 
-.banner{
-	height: 100vh;
+p a, span a, a {
+  color: orange;
+  text-decoration: none;
+}
+
+p a:hover, a:visited, span a:visited{  
+  color: orange;
+}
+
+p a:hover, span a:hover, a:hover {
+  text-decoration: underline;
+}
+.banner {
+  height: 100%;
+  min-height: 50vh;
 }
 
 .key{
 	word-wrap: break-word;
+}
+
+.content {
+  background-color: #15202b;
+  color:#eee;
+  height: 100%;
+  min-height: 50vh;
+  font-size: 1.2em;
 }
